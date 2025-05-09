@@ -1,3 +1,5 @@
+#!/bin/sh
+
 IS_MUTED=`pactl get-source-mute @DEFAULT_SOURCE@ | grep yes`
 
 if [[ -n $IS_MUTED ]]; then
