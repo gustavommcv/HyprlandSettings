@@ -13,7 +13,7 @@ chmod +x ~/.config/hypr/scripts/*
 ```
 
 ## Waybar settings
-https://github.com/gustavommcv/WaybarSettings-Hyprland-Desktop
+https://github.com/gustavommcv/WaybarSettings-Hyprland
 
 ## Rofi settings
 https://github.com/gustavommcv/Rofi-Settings
