@@ -1,11 +1,17 @@
 #!/bin/sh
 
-IS_MUTED=`pactl get-source-mute @DEFAULT_SOURCE@ | grep yes`
-TOGGLE_MUTE=`pactl set-source-mute @DEFAULT_SOURCE@ toggle`
+toggle_microphone() {
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+}
 
-if [[ -n $IS_MUTED ]]; then
-  $TOGGLE_MUTE && paplay ~/.config/hypr/audios/discord-unmute-sound.mp3
+microphone_is_muted() {
+	pactl get-source-mute @DEFAULT_SOURCE@ | grep yes
+}
+
+if microphone_is_muted; then
+	toggle_microphone && paplay ~/.config/hypr/audios/discord-unmute-sound.mp3
 else
-  $TOGGLE_MUTE && paplay ~/.config/hypr/audios/discord-mute-sound.mp3
+	toggle_microphone && paplay ~/.config/hypr/audios/discord-mute-sound.mp3
 fi
+
 
